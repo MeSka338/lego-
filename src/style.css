@@ -1,0 +1,50 @@
+@font-face {
+    font-family: neue machina; /* Гарнитура шрифта */
+    src: url(/static/NeueMachina-Bold.ttf); /* Путь к файлу со шрифтом */
+   }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  color: white;
+  position: absolute;
+  width: 90%;
+  font-family: neue machina, Arial, Helvetica, sans-serif;
+  
+}
+.big {
+    margin-bottom: 0px;
+    margin-left: 150px;
+    margin-top: 330px;
+    font-size: 100px;
+}
+
+.lil {
+    margin-top: 10px;
+    font-size: 60px;
+    margin-left: 150px;
+}
+
+.loading-bar {
+    position: absolute;
+    top: 50%;
+    width: 99%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 1ms ;
+    will-change: transform;
+}
+
+.loading-bar.ended {
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform 1.5s ease-in-out;
+
+}
+
+
