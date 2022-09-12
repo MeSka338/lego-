@@ -8,7 +8,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { Reflector } from 'three/examples/jsm/objects/Reflector.js'
 import gsap from 'gsap';
-console.log('start');
+
 /**
  *  Dat gui
  */
@@ -131,12 +131,11 @@ window.addEventListener(
             head_temp.head.lookAt(new THREE.Vector3( pos.x, -1000 , 0));
         }
 
-        // sphere.position.copy(pos)
+        sphere.position.copy(pos)
 
     },
     false
-    );
-
+);
 
 /**
  * Camera
@@ -199,7 +198,7 @@ scene.add(pointLight_3)
 
 //// Point light helper 
 const pointLightHelper_1 = new THREE.PointLightHelper(pointLight_1, 0.01) ;
-scene.add(pointLightHelper_1);
+// scene.add(pointLightHelper_1);
 
 const pointLightHelper_3 = new THREE.PointLightHelper(pointLight_3, 0.1);
 // scene.add(pointLightHelper_3); 
@@ -285,17 +284,16 @@ scene.add(stars);
  *  Sphere-lighter 
  */
  
-// const sphere = new THREE.Mesh(
-//     new THREE.SphereBufferGeometry(), 
-//     new THREE.MeshStandardMaterial({
-//         color: 0xffffff,
-//         map:starsTexture
-//     })
-// )
-// sphere.position.copy(pointLight_1.position)
-// sphere.scale.set(0.007, 0.007, 0.007)
+const sphere = new THREE.Mesh(
+    new THREE.SphereBufferGeometry(), 
+    new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+    })
+)
+sphere.position.copy(pointLight_1.position)
+sphere.scale.set(0.01, 0.01, 0.01)
 
-// scene.add(sphere)
+scene.add(sphere)
 
 /**
  * Renderer
@@ -305,12 +303,6 @@ const renderer = new THREE.WebGLRenderer({
     antialias: true,
 })
 
-// renderer.shadowMap.enabled = true
-// renderer.shadowMap.type = THREE.PCFShadowMap
-// renderer.physicallyCorrectLights = true
-// renderer.outputEncoding = THREE.sRGBEncoding
-//  renderer.toneMapping = THREE.ReinhardToneMapping
-// renderer.toneMappingExposure = 1.5
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
