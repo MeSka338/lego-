@@ -13,7 +13,7 @@ import gsap from 'gsap';
  *  Dat gui
  */
 
-const gui = new GUI();
+// const gui = new GUI();
 /**
  *  Loaders
  */
